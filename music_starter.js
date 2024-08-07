@@ -6,38 +6,36 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   rectMode(CENTER)
   textSize(24);
   
-   let bar_spacing = height / 10;
-   let bar_height = width / 12;
-   let bar_pos_x = width / 2;
+   
  
 
    // vocal bar is red
+   let vocal_circle = map(vocal,0,100,400,1500)
    fill(200, 0, 0);
-   rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height);
+   ellipse(500,500,vocal_circle,vocal_circle)
    fill(0);
-   text("vocals", bar_pos_x, height / 2 + 1 * bar_spacing + 8);
+   ;
  
+   let drum_circle = map(drum,0,100,300,1000)
    // drum bar is green
    fill(0, 200, 0);
-   rect(bar_pos_x, height / 2 + 2 * bar_spacing, 4 * drum, bar_height);
+   ellipse(500,500,drum_circle,drum_circle)
    fill(0);
-   text("drums", bar_pos_x, height / 2 + 2 * bar_spacing + 8);
- 
+   
+
+   let bass_circle = map(bass,0,100,200,500)
    // bass bar is blue
    fill(50, 50, 240);
-   rect(bar_pos_x, height / 2 + 3 * bar_spacing, 4 * bass, bar_height);
+   ellipse(500,500,bass_circle,bass_circle)
    fill(0);
-   text("bass", bar_pos_x, height / 2 + 3 * bar_spacing + 8);
+   ;
  
+   let other_circle = map(other,0,100,50,400)
    // other bar is white
    fill(200, 200, 200);
-   rect(bar_pos_x, height / 2 + 4 * bar_spacing, 4 * other, bar_height);
+   ellipse(500,500,other_circle,other_circle)
    fill(0);
-   text("other", bar_pos_x, height / 2 + 4 * bar_spacing + 8);
-   fill(255, 255, 0);
+  ;
  
-   // display "words"
-   textAlign(CENTER);
-   textSize(vocal);
-   text(words, width/2, height/3);
+
 }
