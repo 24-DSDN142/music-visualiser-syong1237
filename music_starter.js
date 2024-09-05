@@ -1,9 +1,11 @@
 let radio;
+let volume_knob;
 let firstRun = true; 
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   if(firstRun){
     radio = loadImage("Radio.png")
+    volume_knob = loadImage("Volume Knob Sprite.png")
 
     firstRun = false;
   }
@@ -14,7 +16,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
   //Background Image
 image(radio, 0,0)
-
+image(volume_knob,-96/2,-96/2)
 
 
 
@@ -44,18 +46,18 @@ image(radio, 0,0)
 
 
   //Visualiser On bottom Screen
-let bar_x = 145
-let bar_Y = 810
+let bar_x = 100
+let bar_Y = 792
 
-let single_barwidth = 14
-let single_barheight = 14 
+let single_barwidth = 16
+let single_barheight = 12
 
 let max_barheight_1 = 2
 let max_barheight_2 = 4
 let max_barheight_3 = 6
 let max_barheight_4 = 8
 
-let bar_movement_spacing = 15
+let bar_movement_spacing = 12
 
 let vocal_map = map(vocal,0,100,0,max_barheight_4)
 
@@ -66,10 +68,10 @@ let drum_map = map(drum,0,100,0,max_barheight_2)
 let bass_map = map(bass,0,100,0,max_barheight_1)
 
 
-let vocal_colour = "#ffa4bf"
-let bass_colour = "#ffffff"
-let drum_colour = "#f3e0aa"
-let other_colour = "#9fc5e8"
+let vocal_colour = "#ffa4bf" //Last Bar
+let bass_colour = "#ffffff" //First Bar
+let drum_colour = "#f3e0aa" //Second Bar
+let other_colour = "#9fc5e8" //Third Bar
 
   fill(bass_colour)
   for(let i = 0; i < bass_map; i ++){
