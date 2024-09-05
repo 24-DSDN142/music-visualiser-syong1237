@@ -7,6 +7,7 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
     radio = loadImage("Radio.png")
     volume_knob = loadImage("Volume Knob Sprite.png")
     bass_treble_knob = loadImage ("Bass and Treble Knob Sprite.png")
+    gauge_pointer = loadImage ("Gauge Pointer Sprite.png")
 
     firstRun = false;
   }
@@ -44,7 +45,7 @@ image(bass_treble_knob,-40/2,-40/2);
 
 pop();
 
-// Bass Knob
+// Treble Knob
 
 push();
 translate(146,665);
@@ -57,15 +58,46 @@ image(bass_treble_knob,-40/2,-40/2);
 
 pop()
 
+// Gauge pointers
 
+// Gauge pointer 1
+push()
 
+translate(215,178)
 
+let gaugepointer_map1 = map(drum,0,100,-25,80) 
 
+rotate(gaugepointer_map1)
 
+image(gauge_pointer,-134,-22)
 
+pop()
 
+// Gauge pointer 2
+push()
 
+translate(455,178)
 
+let gaugepointer_map2 = map(vocal,0,100,-5,80) 
+
+rotate(gaugepointer_map2)
+
+image(gauge_pointer,-134,-22)
+
+pop()
+
+// Gauge pointer 3
+push()
+
+translate(695,178)
+
+let gaugepointer_map3 = map(bass,0,100,-5,80) 
+
+rotate(gaugepointer_map3)
+
+image(gauge_pointer,-134,-22)
+
+pop()
 
 
 
@@ -97,13 +129,13 @@ let max_barheight_4 = 8
 
 let bar_movement_spacing = 12
 
-let vocal_map = map(vocal,0,100,0,max_barheight_4)
+let vocal_map = map(vocal,0,100,-1,max_barheight_4)
 
-let other_map = map(other,0,100,0,max_barheight_3)
+let other_map = map(other,0,100,-1,max_barheight_3)
 
-let drum_map = map(drum,0,100,0,max_barheight_2)
+let drum_map = map(drum,0,100,-1,max_barheight_2)
 
-let bass_map = map(bass,0,100,0,max_barheight_1)
+let bass_map = map(bass,0,100,-1,max_barheight_1)
 
 
 let vocal_colour = "#ffa4bf" //Last Bar
