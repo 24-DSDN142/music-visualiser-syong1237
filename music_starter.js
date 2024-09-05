@@ -6,18 +6,56 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
   if(firstRun){
     radio = loadImage("Radio.png")
     volume_knob = loadImage("Volume Knob Sprite.png")
+    bass_treble_knob = loadImage ("Bass and Treble Knob Sprite.png")
 
     firstRun = false;
   }
-  background(20)
+  background(255)
   textFont('Verdana'); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(24);
+  angleMode(DEGREES);
 
   //Background Image
-image(radio, 0,0)
-image(volume_knob,-96/2,-96/2)
+image(radio, 0 ,10)
 
+//Volume knob
+push();
+translate(682,685);
+
+let volumeknob_map = map(vocal,0,100,0,-360);
+
+rotate(volumeknob_map);
+
+image(volume_knob,-96/2,-96/2);
+
+pop();
+
+// Bass Knob
+
+push();
+translate(75,665);
+
+let bassknob_map = map(bass,0,100,0,360);
+
+rotate(bassknob_map);
+
+image(bass_treble_knob,-40/2,-40/2);
+
+pop();
+
+// Bass Knob
+
+push();
+translate(146,665);
+
+let trebleknob_map = map(other,0,100,0,360);
+
+rotate(trebleknob_map);
+
+image(bass_treble_knob,-40/2,-40/2);
+
+pop()
 
 
 
@@ -47,7 +85,7 @@ image(volume_knob,-96/2,-96/2)
 
   //Visualiser On bottom Screen
 let bar_x = 100
-let bar_Y = 792
+let bar_Y = 801
 
 let single_barwidth = 16
 let single_barheight = 12
