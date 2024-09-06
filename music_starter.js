@@ -11,18 +11,18 @@ function draw_one_frame(words, vocal, drum, bass, other, counter) {
 
     firstRun = false;
   }
-  background(255)
+  background(150)
   textFont('Verdana'); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(24);
   angleMode(DEGREES);
 
   //Background Image
-image(radio, 0 ,10)
+image(radio,50 ,55)
 
 //Volume knob
 push();
-translate(682,685);
+translate(732,730);
 
 let volumeknob_map = map(vocal,0,100,0,-360);
 
@@ -35,7 +35,7 @@ pop();
 // Bass Knob
 
 push();
-translate(75,665);
+translate(125,708);
 
 let bassknob_map = map(bass,0,100,0,360);
 
@@ -48,7 +48,7 @@ pop();
 // Treble Knob
 
 push();
-translate(146,665);
+translate(196,708);
 
 let trebleknob_map = map(other,0,100,0,360);
 
@@ -63,7 +63,7 @@ pop()
 // Gauge pointer 1
 push()
 
-translate(215,178)
+translate(270,222)
 
 let gaugepointer_map1 = map(drum,0,100,-25,80) 
 
@@ -76,7 +76,7 @@ pop()
 // Gauge pointer 2
 push()
 
-translate(455,178)
+translate(510,222)
 
 let gaugepointer_map2 = map(vocal,0,100,-5,80) 
 
@@ -89,7 +89,7 @@ pop()
 // Gauge pointer 3
 push()
 
-translate(695,178)
+translate(750,222)
 
 let gaugepointer_map3 = map(bass,0,100,-5,80) 
 
@@ -116,8 +116,8 @@ pop()
 
 
   //Visualiser On bottom Screen
-let bar_x = 100
-let bar_Y = 801
+let bar_x = 153
+let bar_Y = 848
 
 let single_barwidth = 16
 let single_barheight = 12
@@ -138,10 +138,10 @@ let drum_map = map(drum,0,100,-1,max_barheight_2)
 let bass_map = map(bass,0,100,-1,max_barheight_1)
 
 
-let vocal_colour = "#ffa4bf" //Last Bar
-let bass_colour = "#ffffff" //First Bar
-let drum_colour = "#f3e0aa" //Second Bar
-let other_colour = "#9fc5e8" //Third Bar
+let vocal_colour = "#ff00c1" //fourth Bar
+let bass_colour = "#00b8ff" //First Bar
+let drum_colour = "#4900ff" //Second Bar
+let other_colour = "#9600ff" //Third Bar
 
   fill(bass_colour)
   for(let i = 0; i < bass_map; i ++){
