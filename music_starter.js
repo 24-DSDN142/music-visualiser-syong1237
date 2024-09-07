@@ -50,7 +50,7 @@ pop();
 push();
 translate(196,708);
 
-let trebleknob_map = map(other,0,100,0,360);
+let trebleknob_map = map(drum,0,100,0,360);
 
 rotate(trebleknob_map);
 
@@ -105,33 +105,23 @@ pop()
 
 
 
-
-
-
-
-
-
-
-
-
-
   //Visualiser On bottom Screen
-let bar_x = 153
+let bar_x = 138
 let bar_Y = 848
 
-let single_barwidth = 16
+let single_barwidth = 18
 let single_barheight = 12
 
-let max_barheight_1 = 2
-let max_barheight_2 = 4
-let max_barheight_3 = 6
-let max_barheight_4 = 8
+let max_barheight_1 = 4  //bar 1
+let max_barheight_2 = 6  //bar 2
+let max_barheight_3 = 8  //bar 3
+let max_barheight_4 = 8  //bar 3
 
 let bar_movement_spacing = 12
 
 let vocal_map = map(vocal,0,100,-1,max_barheight_4)
 
-let other_map = map(other,0,100,-1,max_barheight_3)
+let other_map = map(other,0,100,-6,max_barheight_3)
 
 let drum_map = map(drum,0,100,-1,max_barheight_2)
 
@@ -142,6 +132,9 @@ let vocal_colour = "#ff00c1" //fourth Bar
 let bass_colour = "#00b8ff" //First Bar
 let drum_colour = "#4900ff" //Second Bar
 let other_colour = "#9600ff" //Third Bar
+
+stroke ("#4dd0e1")
+strokeWeight(1)
 
   fill(bass_colour)
   for(let i = 0; i < bass_map; i ++){
@@ -212,32 +205,29 @@ let other_colour = "#9600ff" //Third Bar
     rect(bar_x + single_barwidth * 13 , bar_Y-i * bar_movement_spacing , single_barwidth,single_barheight)
   }
  
+// A/C Visualizer 
 
-  //  // vocal bar is red
-  //  let vocal_circle = map(vocal,0,100,400,1500)
-  //  fill(200, 0, 0);
-  //  ellipse(500,500,vocal_circle,vocal_circle)
-  //  fill(0);
-  //  ;
- 
-  //  let drum_circle = map(drum,0,100,300,1000)
-  //  // drum bar is green
-  //  fill(0, 200, 0);
-  //  ellipse(500,500,drum_circle,drum_circle)
-  //  fill(0);
-   
 
-  //  let bass_circle = map(bass,0,100,200,500)
-  //  // bass bar is blue
-  //  fill(50, 50, 240);
-  //  ellipse(500,500,bass_circle,bass_circle)
-  //  fill(0);
-  //  ;
- 
-  //  let other_circle = map(other,0,100,50,400)
-  //  // other bar is white
-  //  fill(200, 200, 200);
-  //  ellipse(500,500,other_circle,other_circle)
-  //  fill(0);
-  // ;
+let ac_x = 150
+let ac_y = 455
+
+let ac_height = 20
+let ac_width = 15
+
+let ac_spacing = 20
+
+let ac_max_height = 6
+let ac_min_height = -1
+let ac_max_height_change = 15
+
+let ac_map = map (vocal,0,100, ac_min_height , ac_max_height )
+
+stroke ("#4dd0e1")
+strokeWeight(4)
+fill("#80deea")
+
+for(let i = 0; i < ac_map; i ++){
+  rect(ac_x + i * ac_spacing , ac_y - i * ac_max_height_change/2  , ac_width, ac_height + i * ac_max_height_change)
+
+}
 }
